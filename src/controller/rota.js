@@ -80,7 +80,7 @@ function startService () {
                 marker.setLatLng([coord.lat, coord.lng]);
                 // Identifica o final da viagem.
                 if (coord.lat === coordUser[0] && coord.lng === coordUser[1]) {
-                    alert('Seu táxi acabou de chegar!')
+                   // alert('Seu táxi acabou de chegar!')
                 }
             }, 1000 * index)
         })

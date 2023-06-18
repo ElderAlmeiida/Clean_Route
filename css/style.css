@@ -4,7 +4,94 @@
 
 
 body {
-    background-image: url("/background.png") ;
+    background-image: url("/background.png");
     background-color: #cccccc;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
+
+.input-field {
+    @apply block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500;
+  }
+  
+  .btn-primary {
+    @apply inline-block bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:ring-offset-2 focus:ring-2;
+  }
+  .underline-animation {
+    position: relative;
+  }
+
+  .underline-animation::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+
+  .underline-animation:hover::before {
+    width: 100%;
+  }
+
+  .input-style {
+    height: 3.08rem;
+    font-size: 1.25rem;
+  }
+
+  .button-style {
+    background-image: linear-gradient(to right, #AEE2FF 0%, #3377FF 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+  }
+  .button-style-stop {
+    background-image: linear-gradient(to right,#e88484 0%,  #FF0000 100%);
+    background-size: 200% auto;
+    transition: background-position 0.5s;
+}
+  .button-style:hover {
+    background-position: -100% center;
+  }
+  .button-style-stop:hover {
+    background-position: -100% center;
+}
+  .table-container {
+  margin-top: 400px;
+  margin-bottom:3rem;
+}
+
+#routeTable {
+  margin: 0 auto;
+  width: calc(100% - 400px);
+  margin-left: 200px;
+}
+
+#routeTable thead th {
+  color: white;
+  background-color: transparent;
+}
+
+#routeTable tbody tr:nth-child(even) {
+  background-color: #D9D9D9;
+  color: black;
+}
+
+#routeTable tbody tr:nth-child(odd) {
+  background-color: transparent;
+  color: white;
+}
+
+#form {
+  background-color: rgba(217, 217, 217, 0.37);
+}
+.table-header {
+  background-color: #374151;
+  padding: 0.75rem 1.5rem;
+  margin-bottom:3rem;
+}
+
+
+
 

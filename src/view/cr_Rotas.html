@@ -1,66 +1,87 @@
 <!DOCTYPE html>
-<html lang="Pt-Br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
-	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-    <title>Clean Route - Eficiencia e Performance</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Asap:wght@400;500;700&family=Source+Sans+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <title>Clean Route - Eficiência e Performance</title>
 </head>
-<body>
-    <body class=" bg-black">
-   
 
-        <div id="app"></div>
-        <div class="cr_main_rota grid grid-flow-col items-center m-8 ">
-             <div id="map" style="width: 100%; height:500px " class="cr_map_route" >
+<body class="bg-gray-900">
+  <div id="app"></div>
 
-                
+  <div class="define_rota flex m-14 gap-10 justify-center items-center">
+    <div id="map" class="h-[652px] w-[687px] rounded-2xl"></div>
 
-             </div>
-             
-             
-             <div class="cr_def_route bg-[#D9D9D9] " > 
-                <form id="formRota">
-                    <label for="cr_id_rota">ID da Rota:</label>
-                    <input type="text" id="cr_id_rota" name="cr_id_rota" required><br>
-                
-                    <label for="cr_funcionario">Funcionário:</label>
-                    <input type="text" id="cr_funcionario" name="cr_funcionario" required><br>
-                
-                    <label for="cr_veiculo">Veículo:</label>
-                    <input type="text" id="cr_veiculo" name="cr_veiculo" required><br>
-                
-                    <label for="cr_inicio_da_rota">Início da Rota:</label>
-                    <input type="text" id="cr_inicio_da_rota" name="cr_inicio_da_rota" required><br>
-                
-                    <label for="cr_paradas">Paradas:</label>
-                    <textarea id="cr_paradas" name="cr_paradas" required></textarea><br>
-                
-                    <label for="cr_rota_final">Rota Final:</label>
-                    <input type="text" id="cr_rota_final" name="cr_rota_final" required><br>
-                
-                    <button type="submit">Enviar</button>
-                  </form>
-                
-                  <div id="listaRotas"></div> 
-                
+    <div id="form" class="p-4 bg-[#D9D9D9] bg-opacity-[60%] rounded-xl h-[654.86px] w-[687px] flex flex-col justify-center">
+     <header class="text-[2rem] text-white text-center mb-16 mt-6">
+                    <h2 class="shadow-sm">Definir Rota</h2>
+                  </header>
+      <form id="routeForm" class="mt-[2rem]">
+        <select  id="funcionario" name="funcionario" required class="input-style block w-full p-2 text-[#A59B9B] border border-gray-300 rounded focus:ring focus:ring-blue-200 focus:outline-none">
+          <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+        </select>
+        
+        <select  id="veiculo" name="veiculo" required class="input-style block w-full p-2 text-[#A59B9B] border border-gray-300 rounded focus:ring focus:ring-blue-200 focus:outline-none">
+          <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+        </select>
 
-             </div>
-
+        <div class="mb-4">
+          <input type="text" id="rotaInicial" required placeholder="Rota Inicial" class="input-style block w-full p-2 text-[#A59B9B] border border-gray-300 rounded focus:ring focus:ring-blue-200 focus:outline-none">
         </div>
-        
-        
-          
-            
-    
-        <script type="module" src="/src/controller/rota.js"></script>
-        <script type="module" src="/src/controller/main.js"></script>
-        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
-        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-        
-      </body>
+
+        <div class="mb-4">
+          <input type="text" id="paradas" required placeholder="Paradas" class="input-style block w-full p-2 text-[#A59B9B] border border-gray-300 rounded focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+
+        <div class="mb-4">
+          <input type="text" id="rotaFinal" required placeholder="Rota Final" class="input-style block w-full p-2 text-[#A59B9B] border border-gray-300 rounded focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+
+        <div class="flex justify-center">
+          <button type="button" onclick="definirRota()" class="button-style px-4 py-2 text-[2.25rem] text-center w-full bg-blue-500 text-white rounded flex items-center">
+            Definir Rota
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="table-container  mt-40 mx-auto  ml-20">
+    <table id="routeTable" class="w-full">
+      <thead>
+        <tr class="text-white bg-gray-700">
+          <th class="py-2 px-4">ID</th>
+          <th class="py-2 px-4">Funcionário</th>
+          <th class="py-2 px-4">Veículo</th>
+          <th class="py-2 px-4">Rota Inicial</th>
+          <th class="py-2 px-4">Paradas</th>
+          <th class="py-2 px-4">Rota Final</th>
+          <th class="py-2 px-4">Editar</th>
+          <th class="py-2 px-4">Excluir</th>
+        </tr>
+      </thead>
+     
+      <tbody class=" ">
+        <!-- As linhas da tabela aqui -->
+      </tbody>
+   
+    </table>
+  </div>
+</div>
+
+  <script type="module" src="/src/controller/main.js"></script>
+  <script src="/src/controller/teste.js"></script>
 </body>
+
 </html>
+

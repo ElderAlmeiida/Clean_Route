@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Clean Route</title>
+</head>
+<body class="h-full bg-gray-900">
+  <div id="app" class=""></div>
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-6xl ">
+        <div class="rounded-xl container xl bg-slate-100 px-6 py-24 sm:py-6 lg:px-6 space-y-4">
+
+            <div class="flex flex-row space-x-4 ">
+              <div class="basis-1/4 bg-white rounded-md sm:py-2 px-2">
+                  <div class="flex container mx-auto items-center text-xs m:py-6 lg:px-6">
+                    <div class="flex flex-full relative z-10 rounded-md bg-slate-200 px-5 py-1.0 font-medium text-gray-600">Tipos de desembolso </div>
+                  </div>  
+                  <div class="flex flex-row space-x-2 mt-4">
+                      <div class="w-1/2 text-xs">
+                        <div class="flex flex-full relative z-10 py-1.0 font-medium text-gray-600 ">Mensal Fixo:</div>
+                        <p class="text-left mt-1 text-slate-500">R$5,456,25</p>
+                      </div>
+                      <div class="w-1/2 text-xs">
+                        <div class="flex flex-full relative z-10 py-1.0 font-medium text-gray-600 ">Mensal Variável:</div>
+                        <p class="text-left mt-1 text-slate-500">R$4,456,25</p>
+                      </div>
+                  </div>
+                  <div class="w-full mt-4 text-xs">
+                     <div class="w-full py-1.0 font-medium text-gray-600 ">Eventual Fixo:</div>
+                     <p class="w-full text-left mt-1 text-slate-500">R$3,456,25</p>
+                  </div>
+                  <div class="w-full mt-4 text-xs">
+                     <div class="w-full py-1.0 font-medium text-gray-600 ">Eventual Variável::</div>
+                     <p class="w-full text-left mt-1 text-slate-500">R$2,656,25</p>
+                  </div>
+              </div>
+              <div class="basis-3/4 bg-white rounded-md">
+                  <div class="flex place-items-stretch space-x-2 mt-4">
+                      <div class="w-1/2 text-xs pt-8">
+                        <div class="text-center text-2xl text-sky-500">Total de <br>contratos</div>
+                        <p class="text-center mt-1 py-2 text-slate-500 text-lg">16</p>
+                      </div>
+                      <div class="w-1/2 text-xs  pt-8">
+                        <div class="text-center text-2xl text-sky-500">Saldo <br>Contratual</div>
+                        <p class="text-center mt-1 py-2 text-slate-500 text-lg">R$50,456,25</p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="flex flex-row space-x-4">
+              <div class="basis-1/4">
+
+                <div class="w-full mb-3">
+                    <div class="w-full text-3xl text-gray-600 ">Serviços:</div>
+                </div>
+
+                <div class="flex flex-row gap-2">
+                  <div class="basis-1/2 rounded-lg bg-white shadow-lg py-5">
+                      <p class="text-center text-xl">15</p>
+                      <div class="text-center mt-1  text-xl">Vigentes</div>
+                  </div>
+                  <div class="basis-1/2 rounded-lg bg-white shadow-lg py-5 ">
+                    <p class="text-center text-xl">5</p>
+                    <div class="text-center mt-1 text-xl">A vencer (3meses)</div>
+                  </div>
+                </div>
+
+                <div class="flex flex-row gap-2 mt-2">
+                  <div class="basis-1/2 rounded-lg bg-white shadow-lg py-5">
+                      <p class="text-center text-xl">15</p>
+                      <div class="text-center mt-1  text-xl">Vigentes</div>
+                  </div>
+                  <div class="basis-1/2 rounded-lg bg-white shadow-lg py-5">
+                    <p class="text-center text-xl">5</p>
+                    <div class="text-center mt-1 text-xl">A vencer (3meses)</div>
+                  </div>
+                </div>
+                                
+                <div class="flex flex-row gap-2 mt-2">
+                  <div class="basis-1/2 rounded-lg bg-white shadow-lg py-5">
+                      <p class="text-center text-xl">15</p>
+                      <div class="text-center mt-1  text-xl">Vigentes</div>
+                  </div>
+                  <div class="basis-1/2 rounded-lg bg-white shadow-lg py-5">
+                    <p class="text-center text-xl">5</p>
+                    <div class="text-center mt-1 text-xl">A vencer (3meses)</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="basis-3/4 bg-white rounded-md px-8">
+                 <div class="w-full mb-3 content-center">
+                    <img src="/public/info.jpg" class="mt-5" >
+                </div>
+                
+              </div>
+          </div> 
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/src/controller/main.js"></script>
+</body>
+</html>

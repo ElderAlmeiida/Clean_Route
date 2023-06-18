@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Clean Route / Cadastro de veículo</title>
+</head>
+<body class="  bg-gray-900">
+            <div id="app"></div>
+            <div id="app" class="flex justify-center items-center h-screen m-[-10rem]">
+                <div id="form" class="p-4 bg-[#D9D9D9] bg-opacity-[60%] rounded-xl w-[687px] flex flex-col items-center">
+                    <form action="#">
+                        <header class="text-[2rem] text-white text-center  mb-16 mt-6">
+                            <h2 class="shadow-sm">Cadastrar Funcionário</h2>
+                        </header>
+                        <div class="input-group">
+                            <div class="input-box mb-4">
+                                <input id="name" type="text" name="name" placeholder="Nome" required class="input-style block w-full p-2 text-[#7E7676] bg-[#D9D9D9] border border-gray-300 rounded-[1.06rem] focus:ring focus:ring-blue-200 focus:outline-none shadow-md">
+                            </div>
+            
+                            <div class="input-box mb-4">
+                                <input id="cnh" type="number" name="cnh" placeholder="CNH" required class="input-style block w-full p-2 text-[#7E7676] bg-[#D9D9D9] border border-gray-300 rounded-[1.06rem] focus:ring focus:ring-blue-200 focus:outline-none shadow-md">
+                            </div>
+            
+                            <div class="input-box mb-4">
+                                <input id="vehicle" type="text" name="vehicle" placeholder="Telefone" required class="input-style block w-full p-2 text-[#7E7676] bg-[#D9D9D9] border border-gray-300 rounded-[1.06rem] focus:ring focus:ring-blue-200 focus:outline-none shadow-md">
+                            </div>
+            
+                            <div class="input-box mb-4">
+                                <input id="rote" type="text" name="rote" placeholder="E-mail" required class="input-style block w-full p-2 text-[#7E7676] bg-[#D9D9D9] border border-gray-300 rounded-[1.06rem] focus:ring focus:ring-blue-200 focus:outline-none shadow-md">
+                            </div>
+            
+                            <div class="input-box mb-4">
+                                <input id="password" type="password" name="password" placeholder="Senha" required class="input-style block w-full p-2 text-[#7E7676] bg-[#D9D9D9] border border-gray-300 rounded-[1.06rem] focus:ring focus:ring-blue-200 focus:outline-none shadow-md">
+                            </div>
+            
+                            <div class="input-box mb-4">
+                                <input id="password_confirm" type="password" name="password" placeholder="Confirmar Senha" required class="input-style block w-full p-2 text-[#7E7676] bg-[#D9D9D9] border border-gray-300 rounded-[1.06rem] focus:ring focus:ring-blue-200 focus:outline-none shadow-md">
+                            </div>
+                        </div>
+            
+                        <div class="flex justify-between mt-6 gap-[33px]">
+                            <button type="button" onclick="cancelar()" class="button-style-stop px-4 py-2 text-[32px] text-center bg-red-200 hover:bg-red-500 text-white rounded-[1.06rem] flex items-center transition-colors shadow-md">
+                                <svg class="w-6 h-6 mr-2 transform transition-transform duration-500 hover:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                Cancelar
+                            </button>
+            
+                            <button type="button" onclick="salvarDados()" class="button-style px-4 py-2 text-[32px] text-center bg-green-200 hover:bg-green-500 text-white rounded-[1.06rem] flex items-center transition-colors shadow-md">
+                                <svg class="w-6 h-6 mr-2 transform transition-transform duration-500 hover:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3zM5 5v9h14V5H5z"></path>
+                                    <path d="M5 12h14"></path>
+                                </svg>
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="table-container  mt-40 mx-auto  ml-20">
+                <table id="routeTable" class="w-full">
+                  <thead>
+                    <tr class="text-white bg-gray-700">
+                      <th class="py-2 px-4">ID</th>
+                      <th class="py-2 px-4">nome</th>
+                      <th class="py-2 px-4">CNH</th>
+                      <th class="py-2 px-4">Telefone</th>
+                      <th class="py-2 px-4">E-mail</th>
+                      <th class="py-2 px-4">Editar</th>
+                      <th class="py-2 px-4">Excluir</th>
+                    </tr>
+                  </thead>
+                 
+                  <tbody class=" ">
+                    <!-- As linhas da tabela aqui -->
+                  </tbody>
+               
+                </table>
+              </div>
+            </div>   
+            
+    <script type="module" src="/src/controller/main.js"></script>
+    <script src="/src/controller/Funcionario.js"></script>
+</body>
+</html>
